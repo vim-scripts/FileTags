@@ -1,0 +1,22 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4194
+
+Ever edit a file in a deeply-nested directory and then need to locate it a few days or weeks later, but have no recourse but to run a search/find for it? Or, have multiple files with the same name (such as "build.xml"), but for different projects and need to keep them straight?
+
+Example:
+
+Given these files, create tags using :EditTags:
+
+Some/project/build.xml (tags: build project local)
+Some/Other/Project/build.xml (tags: build otherProject local)
+Some/Other/Project/src/com/company/SomeFile.java (tags: otherProject some file local)
+/vim/.vimrc (tags: vim rc global)
+
+Then, you can locate the files by using :LocateTagMatches and the other flavours provided. (:LocateTagMatches bui oth--"build" and "otherProject" need not be specified fully). If multiple matches are found (:LoateTagMatches bui), they are put in a list and you can pick the one you want (or hit escape to change your mind).
+
+Features:
+- Search by tags
+- Select from list in case of multiple matches
+- Copy result to clipboard
+- Open resulting file in current or new window
+- Attempt to guess initial tag set based on path, extension or URL components
+- Supports two files, one for entries with the tag "global" and one with the tag "local". Useful in case you have to go across multiple computers (home and work, for example). The local variation can be used for work-specific files and URLs, for example, and won't clutter the global file that might be shared across multiple computers.
